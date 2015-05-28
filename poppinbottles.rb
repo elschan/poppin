@@ -1,3 +1,45 @@
+
+def start(x)
+  bought = (x/2).floor
+  empties = x
+  caps = x
+  bottles = x
+  amt_from_caps = 0
+  amt_from_empties = 0
+
+  while (empties || caps)>= 2
+    if empties >= 2
+      empties -= 1
+      caps += 1
+      bottles += 1
+      amt_from_empties +=1
+    end
+
+    if caps >= 4
+      empties += 1
+      bottles += 1
+      caps -= 3
+      amt_from_caps +=1
+    end
+  end
+
+total = bottles 
+puts "You would get #{total} of bottles. 
+#{bought} from your purchase, #{amt_from_caps} from recycling your caps, 
+and #{amt_from_empties} from recycling your empty bottles. 
+You will have #{caps} caps and #{empties} bottles leftover for recycling next time!"
+end
+
+
+def ask
+  puts "hello how much would you like to spend?"
+  x = gets.chomp.to_i
+  start(x)
+  ask
+end
+
+ask
+
 # def coo(caps)
 
 # i = caps
@@ -100,42 +142,7 @@
 
 # empties(10)
 
- 
 
-
-def start(x)
-
-  empties = x
-  caps = x
-  bottles = x
-
-  while (empties || caps)>= 2
-    if empties >= 2
-      empties = empties - 1
-      caps = caps + 1
-      bottles = bottles + 1
-    end
-
-    if caps >= 4
-      empties += 1
-      bottles += 1
-      caps -= 3
-    end
-  end
-
-total = bottles 
-puts "You would get #{total} of bottles"
-end
-
-
-def ask
-  puts "hello how much would you like to spend?"
-   x = gets.chomp.to_i
-  start(x)
-  ask
-end
-
-ask
 
 
 
