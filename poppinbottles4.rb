@@ -1,8 +1,8 @@
-def set_values(x)
-  @bought = (x/2).floor
-  @empties = x
-  @caps = x
-  @bottles = x
+def set_values(spending_amount)
+  @bought = (spending_amount/2).floor
+  @empties = spending_amount
+  @caps = spending_amount
+  @bottles = spending_amount
   @amt_from_caps = 0
   @amt_from_bottles = 0
 end
@@ -37,9 +37,9 @@ and #{@amt_from_bottles} from recycling your empty bottles.
 You will have #{@caps} caps and #{@empties} bottles leftover for recycling next time!"
 end
 
-def rich_enough?(x)
-if x>=2
- set_values(x)
+def rich_enough?(spending_amount)
+if spending_amount>=2
+ set_values(spending_amount)
 else
  puts 'Sorry you need at least 2 dollars to buy a bottle'
 end
@@ -50,8 +50,8 @@ def ask
   answer = gets.chomp.downcase
   if answer[0] == 'y'
     puts "how much would you like to spend?"
-    x = gets.chomp.to_i
-    rich_enough?(x)
+    spending_amount = gets.chomp.to_i
+    rich_enough?(spending_amount)
     recycle
   else 
     puts "Ok. Thanks for stopping by."
